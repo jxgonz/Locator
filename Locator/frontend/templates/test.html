@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/test.css' %}">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Locator</a>
+
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Explore Page</a>
+            <a href="#">Reviews</a>
+            <a href="{% url "login" %}">
+                <button class="login">Login</button>
+            </a>
+            <a href="{% url "register" %}">
+                <button class="signup">Sign up</button>
+            </a>
+            
+        </nav>
+    </header>
+
+    <div id="webpage">
+        
+        <div class="slider">
+                
+            <div id="text">
+                Locator
+                <form action="" class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit"><i class="fa fa-search fa-2x" style="color:white;"></i></button>
+                </form>
+            </div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+        </div>
+
+        <div id="categories">
+            <div class="pannel"><i class="fa fa-bell fa-3x"></i></div>
+            <div class="pannel"><i class="fa fa-bath fa-3x"></i></div>
+            <div class="pannel"><i class="fa fa-car fa-3x"></i></div>
+            <div class="pannel"><i class="fa fa-bicycle fa-3x"></i></div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <p></p>
+    </footer>
+</body>
+</html>

@@ -17,7 +17,7 @@ def register(response):
     if form.is_valid():
       form.save()
     
-    # return(redirect(""))
+    return(redirect("/home"))
   else:
     form = RegisterForm()
       
