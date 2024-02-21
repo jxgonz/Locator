@@ -238,31 +238,31 @@ body {
    }
     
    .slider .slide:nth-child(1) {
-      background-image: url('img.jpg');
+      background-image: url('IMG2.jpg');
       filter:brightness(75%);
       animation-delay: 0s;
    }
    
    .slider .slide:nth-child(2) {
-      background-image: url('img.jpg');
+      background-image: url('IMG3.jpg');
       filter:brightness(75%);
       animation-delay: -2.5s;
    }
    
    .slider .slide:nth-child(3) {
-      background-image: url('img.jpg');
+      background-image: url('IMG4.jpg');
       filter:brightness(75%);
       animation-delay: -5s;
    }
    
    .slider .slide:nth-child(4) {
-      background-image: url('img.jpg');
+      background-image: url('IMG5.jpg');
       filter:brightness(75%);
       animation-delay: -7.5s;
    }
    
    .slider .slide:nth-child(5) {
-      background-image: url('img.jpg');
+      background-image: url('IMG6.jpg');
       filter:brightness(75%);
       animation-delay: -10s;
    }
