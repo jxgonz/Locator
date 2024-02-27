@@ -1,11 +1,8 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
-from rest_framework import generics
+from django.contrib.auth import login
 from .forms import RegisterForm
 
-# Create your views here.
-  
+# Create your views here.  
 def register(response):
   if response.method == "POST":
     form = RegisterForm(response.POST)
