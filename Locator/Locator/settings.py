@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'login.apps.LoginConfig',
     'frontend.apps.FrontendConfig',
     # 'reviews.apps.ReviewsConfig',
-    # 'posting_service.apps.PostingServiceConfig',
+    'posting_service.apps.PostingServiceConfig',
     'rest_framework',
 ]
 
