@@ -10,11 +10,8 @@ def ServiceCreateView(request):
     print(request.POST)
     form = ServiceForm(request.POST) 
     if form.is_valid():
-      print("form is valid")
       form.save()
       return redirect('home')
-    else:
-      print("form is invalid")
   else:
     form = ServiceForm
   
