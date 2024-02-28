@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'frontend.apps.FrontendConfig',
     # 'reviews.apps.ReviewsConfig',
     'posting_service.apps.PostingServiceConfig',
+    'booking.apps.BookingConfig',
     'rest_framework',
 ]
 

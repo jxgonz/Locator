@@ -24,5 +24,6 @@ urlpatterns = [
     path('', include('frontend.urls')),
     # path('', include('reviews.urls')),
     path('', include('posting_service.urls')),
+    path('', include('booking.urls')),
     path('', include(urls))
 ]
