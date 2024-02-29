@@ -8,11 +8,11 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required
 def bookAppointment(request, service_id):
-  service = get_object_or_404(Service, id=service_id)
+  service = Service.objects.get(ServiceID=service_id)
   if request.method == 'POST':
     form = AppointmentForm(request.POST)
     if form.is_valid():
-      appointment = form.save()
+      appointment = form.save(commit=False)
       appointment.client = request.user
       appointment.service = service
       appointment.status = 'PENDING'
