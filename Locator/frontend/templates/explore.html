@@ -11,12 +11,20 @@
 <body>
     {% for service in services %}
       <div class="card" style="width: 18rem; margin-left:30px;">
-        <img src="{% static "img/IMG2.jpg" %}" class="card-img-top" alt="...">
+        {% if service.service_img %}
+            <img src="{{ service.service_img.url }}" alt="{{ service.serviceName }}">
+        {% else %}
+            <img src="{% static "img/IMG2.jpg" %}" class="card-img-top" alt="...">
+        {% endif %}
+        
         <div class="card-body">
           <h5 class="card-title">{{ service.serviceName }}</h5>
           <p class="card-text">{{ service.description }}</p>
           <p class="card-text">{{ service.price }}</p>
-          <a href="{% url 'appointments:book' service.ServiceID %}" class="btn btn-primary">Book Now</a>
+          <div>
+            <a href="{% url 'appointments:book' service.ServiceID %}" class="btn btn-primary">Book Now</a>
+            <a href="{% url 'reviews:review' service.ServiceID %}" class="btn btn-primary">Review</a>
+          </div>
         </div>
       </div> 
       <div style="margin-bottom:30px;"></div> 
