@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login.apps.LoginConfig',
     'frontend.apps.FrontendConfig',
+    # 'reviews.apps.ReviewsConfig',
+    'posting_service.apps.PostingServiceConfig',
+    'booking.apps.BookingConfig',
     'rest_framework',
 ]
 
@@ -126,3 +130,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL = "/home"
+LOGOUT_REDIRECT_URL = "/home"

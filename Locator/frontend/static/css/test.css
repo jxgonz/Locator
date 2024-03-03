@@ -37,7 +37,7 @@
     text-decoration:none;
     font-weight:700;
 }
-.navbar a {
+.navbar #nb {
     position: relative;
     font-size:20px;
     color: white;
@@ -47,7 +47,7 @@
     transition-duration: .3s;
 
 }
-.navbar a:hover{
+.navbar #nb:hover{
     font-size:22px;
     color: var(--primarycolor);
 
@@ -235,31 +235,26 @@ body {
    }
     
    .slider .slide:nth-child(1) {
-      background-image: url('/img/img.jpg');
       filter:brightness(75%);
       animation-delay: 0s;
    }
    
    .slider .slide:nth-child(2) {
-      background-image: url('/img/img.jpg');
       filter:brightness(75%);
       animation-delay: -2.5s;
    }
    
    .slider .slide:nth-child(3) {
-      background-image: url('/img/img.jpg');
       filter:brightness(75%);
       animation-delay: -5s;
    }
    
    .slider .slide:nth-child(4) {
-      background-image: url('/img/img.jpg');
       filter:brightness(75%);
       animation-delay: -7.5s;
    }
    
    .slider .slide:nth-child(5) {
-      background-image: url('/img/img.jpg');
       filter:brightness(75%);
       animation-delay: -10s;
    }

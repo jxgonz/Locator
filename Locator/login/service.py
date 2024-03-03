@@ -1,9 +1,9 @@
 from django.db import models
 
 
-class List(models.Model):
-    listing_id = models.AutoField(primary_key=True)  # AutoField is usually a better choice for an ID
-    freelancer = models.ForeignKey('Freelancer', on_delete=models.CASCADE, related_name='listings')
+class Service(models.Model):
+    service_id = models.AutoField(primary_key=True)  # AutoField is usually a better choice for an ID
+    freelancer = models.ForeignKey('Freelancer', on_delete=models.CASCADE, related_name='services')
     description = models.TextField()
     price_rate = models.IntegerField()
     availability = models.BooleanField(default=True)
