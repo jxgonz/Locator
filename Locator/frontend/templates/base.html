@@ -17,7 +17,6 @@
         <nav class="navbar">
             <a id="nb" href="{% url 'home' %}">Home</a>
             <a id="nb" href="{% url 'explore' %}">Explore</a>
-            <a id="nb" href="#">Reviews</a>
             {% if user.is_authenticated %}
                 <div class="dropdown" style="margin-left: 50px;">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">

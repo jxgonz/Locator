@@ -13,11 +13,11 @@
       <div class="card-body">
         <h5 class="card-title">{{ service.serviceName }}</h5>
         <p class="card-text">{{ service.description }}</p>
-        <p class="card-text">{{ service.price }}</p>
+        <p class="card-text">${{ service.price }}/hr</p>
         <div>
-          {% comment %} <a href="{% url 'appointments:book' service.ServiceID %}" class="btn btn-primary">Book Now</a> {% endcomment %}
-          <button type="button" class="btn btn-primary book-now" data-toggle="modal" data-target="#exampleModal" data-service-name="{{ service.serviceName }}">Book Now</button>
+          <a href="{% url 'appointments:book' service.ServiceID %}" class="btn btn-primary">Book Now</a>
           <a href="{% url 'reviews:review' service.ServiceID %}" class="btn btn-primary">Review</a>
+          <a href="{% url 'posting_service:delete_service' service.ServiceID %}">Delete</a>
         </div>
       </div>
     </div> 

@@ -33,5 +33,3 @@ class Service(models.Model):
   service_img = models.ImageField(upload_to='images/', null=True, blank=True)
   # credentials = models.FileField(upload_to=user_directory_path, null=True, blank=True)
   created_at = models.DateTimeField(auto_now_add=True)
-  
-  
