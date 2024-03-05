@@ -2,27 +2,27 @@
 {% load static %}
 
 {% block content %}
-  {% for service in services %}
-    <div class="card" style="width: 18rem; margin-left:30px;">
-      {% if service.service_img %}
-          <img src="{{ service.service_img.url }}" alt="{{ service.serviceName }}">
-      {% else %}
+  <div class="row row-cols-md-3">
+    {% for service in services %}
+      <div class="card">
+          {% if service.service_img %}
+          <img src="{{ service.service_img.url }}" alt="{{ service.serviceName }}" class="card-img-top">
+          {% else %}
           <img src="{% static "img/IMG2.jpg" %}" class="card-img-top" alt="...">
-      {% endif %}
-      
-      <div class="card-body">
-        <h5 class="card-title">{{ service.serviceName }}</h5>
-        <p class="card-text">{{ service.description }}</p>
-        <p class="card-text">${{ service.price }}/hr</p>
-        <div>
-          <a href="{% url 'appointments:book' service.ServiceID %}" class="btn btn-primary">Book Now</a>
-          <a href="{% url 'reviews:review' service.ServiceID %}" class="btn btn-primary">Review</a>
-          <a href="{% url 'posting_service:delete_service' service.ServiceID %}">Delete</a>
-        </div>
+          {% endif %}
+          <div class="card-body">
+              <h5 class="card-title">{{ service.serviceName }}</h5>
+              <p class="card-text">{{ service.description }}</p>
+              <p class="card-text">${{ service.price }}/hr</p>
+              <div>
+                  <a href="{% url 'appointments:book' service.ServiceID %}" class="btn btn-primary">Book Now</a>
+                  <a href="{% url 'reviews:review' service.ServiceID %}" class="btn btn-primary">Review</a>
+              </div>
+          </div>
       </div>
-    </div> 
-    <div style="margin-bottom:30px;"></div> 
-  {% endfor %}
+    {% endfor %}
+  </div>
+
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
