@@ -19,19 +19,12 @@ def user_directory_path(instance, filename):
     return f'user_{instance.User.username}/{filename}'
   
 # Create your models here.
-# class Freelancer(models.Model):
-#   user = models.OneToOneField(User, on_delete=models.CASCADE)
-#   FreelancerID = models.CharField(max_length=8, default=generate_unique_code, unique=True)
-#   # services_offered = models.JSONField(default=list)  # Storing services offered as a JSON list
-
 class Service(models.Model):
   ServiceID = models.CharField(max_length=8, default=generate_unique_code, unique=True)
-  # freelancer = models.ForeignKey(Freelancer, on_delete=models.CASCADE)
+  freelancer = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
   serviceName = models.CharField(max_length=250)
   description = models.TextField()
   price = models.DecimalField(max_digits=10, decimal_places=2) 
   service_img = models.ImageField(upload_to='images/', null=True, blank=True)
   # credentials = models.FileField(upload_to=user_directory_path, null=True, blank=True)
   created_at = models.DateTimeField(auto_now_add=True)
-  
-  
