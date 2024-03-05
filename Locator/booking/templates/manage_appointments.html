@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  {% if appointments %}
+    <div class="row row-cols-md-3">
+      {% for appointment in appointments %}
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Appointment for {{appointment.service.serviceName}}</h5>
+              <p class="card-text">Scheduled for: {{ appointment.date_time }}</p>
+              <div>
+                <a href="{% url 'appointments:edit_appointment' appointment.AppointmentID %}" class="btn btn-primary">Edit</a>
+                <button type="button" class="btn btn-danger delete-now" data-toggle="modal" data-target="#staticBackdrop" data-service-name="{{ appointment.service.serviceName }}" data-appointment-id="{{ appointment.AppointmentID }}">Cancel Appointment</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-info" role="alert">
+      You have no scheduled appointments. Click <a href="{% url 'explore' %}">here</a> to explore all services.
+    </div>
+  {% endif %}
+
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Cancel Appointment for <span id="service-name"></span>?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to cancel your appointment? You will lose your time slot!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" id="confirm-delete" data-service-id="">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="{% url 'home' %}">Go back</a>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Function to set the service name in the modal title
+      $('.delete-now').click(function() {
+        var serviceName = $(this).data('service-name');
+        var appointmentID = $(this).data('appointment-id')
+        $('#service-name').text(serviceName);
+        $('#confirm-delete').data('appointment-id', appointmentID);
+      });
+    });
+    $('#confirm-delete').click(function() {
+      var appointmentID = $(this).data('appointment-id');
+      // Construct the delete URL using the service ID
+      var deleteUrl = `{% url 'appointments:cancel_appointment' 'dummyId' %}`.replace('dummyId', appointmentID);
+      // Redirect to the delete URL
+      window.location.href = deleteUrl;
+    });
+  </script>
+{% endblock content %}
