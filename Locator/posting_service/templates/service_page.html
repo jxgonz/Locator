@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="card" style="width: 70%; margin-left: 50%; transform: translate(-50%);">
+    {% if service.service_img %}
+      <img src="{{ service.service_img.url }}" alt="{{ service.serviceName }}" class="card-img-top">
+    {% else %}
+      <img src="{% static "img/IMG2.jpg" %}" class="card-img-top" alt="...">
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title"> {{ service.serviceName }} </h5>
+      <p class="card-text">{{ service.description }}</p>
+      <p class="card-text">${{ service.price }}/hr</p>
+      <p class="card-text"><small class="text-muted">Posted on {{service.created_at|date:"N d"}}</small></p>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 100px;"></div>
+
+  {% comment %} <h2>Review for {{ service.serviceName }}</h2> {% endcomment %}
+  {% if user.is_authenticated %}
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Leave Review</button>
+    </form>
+  {% endif %}
+  
+
+  {% for review in reviews %}
+    <div class="card" style="width: 80%; margin-left: 50%; transform: translate(-50%);">
+      <div class="card-header">
+        {{ review.client.first_name }}
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p> {{ review.rating }}<small class="text-muted">/5</small></p>
+          <p> {{ review.comment }}</p>
+        </blockquote>
+      </div>
+    </div>
+    <div style="margin-bottom: 30px;"></div>
+  {% endfor %}
+{% endblock content %}
