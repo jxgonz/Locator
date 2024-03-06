@@ -15,7 +15,7 @@
               <p class="card-text">{{ service.description }}</p>
               <p class="card-text">${{ service.price }}/hr</p>
               <div>
-                  <a href="{% url 'appointments:book' service.ServiceID %}" class="btn btn-primary">Book Now</a>
+                  <a href="{% url 'posting_service:service_page' service.ServiceID %}" class="btn btn-primary">View</a>
                   <a href="{% url 'reviews:review' service.ServiceID %}" class="btn btn-primary">Review</a>
               </div>
           </div>
