@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import ServiceForm
 from .models import Service
 from reviews.models import Review
+from reviews.forms import ReviewForm
 
 
 # Create your views here.
@@ -41,7 +42,18 @@ def DeleteServiceView(request, service_id):
 def ServicePageView(request, service_id):
   service = Service.objects.get(ServiceID=service_id)
   reviews = Review.objects.filter(service=service)
-  return render(request, 'service_page.html', {'service' : service, 'reviews' : reviews})
+  if request.method == "POST":
+    form = ReviewForm(request.POST)
+    if form.is_valid():
+      review = form.save(commit=False)
+      review.client = request.user
+      review.service = service
+      review.save()
+      return redirect('home')
+  else:
+    form = ReviewForm()
+  
+  return render(request, 'service_page.html', {'form' : form, 'service' : service, 'reviews' : reviews})
 
 @login_required
 def ManageServicesView(request):

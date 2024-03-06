@@ -18,6 +18,16 @@
 
   <div style="margin-bottom: 100px;"></div>
 
+  {% comment %} <h2>Review for {{ service.serviceName }}</h2> {% endcomment %}
+  {% if user.is_authenticated %}
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Leave Review</button>
+    </form>
+  {% endif %}
+  
+
   {% for review in reviews %}
     <div class="card" style="width: 80%; margin-left: 50%; transform: translate(-50%);">
       <div class="card-header">
