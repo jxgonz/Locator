@@ -1,6 +1,6 @@
 from django.db import models
-from models import User
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.models import User
 
 
 class Freelancer(User):
@@ -23,7 +23,7 @@ class Freelancer(User):
         if found:
             self.save()
         else:
-            raise ObjectDoesNotExist("Service %s does not exist." %service_id)
+            raise ObjectDoesNotExist("Service %s does not exist." % service_id)
 
     def delete_service(self, service_id):
         self.services_offered = [service for service in self.services_offered if service['id'] != service_id]
