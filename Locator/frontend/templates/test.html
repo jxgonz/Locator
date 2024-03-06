@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div id="webpage" style="margin-top:-150px;">
+        <div class="slider">
+            <div id="text">
+                Locator
+                <form action="" class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit"><i class="fa fa-search fa-sm" style="color:white;"></i></button>
+                </form>
+            </div>
+            <div class="slide" style="background-image: url('{% static "img/IMG2.jpg" %}');"></div>
+            <div class="slide" style="background-image: url('{% static "img/IMG3.jpg" %}');"></div>
+            <div class="slide" style="background-image: url('{% static "img/IMG4.jpg" %}');"></div>
+            <div class="slide" style="background-image: url('{% static "img/IMG5.jpg" %}');"></div>
+            <div class="slide" style="background-image: url('{% static "img/IMG6.jpg" %}');"></div>
+        </div>
+
+        <div id="categories">
+            <div class="pannel"><i class="fa fa-bell fa-3x"></i></div>
+            <div class="pannel"><i class="fa fa-bath fa-3x"></i></div>
+            <div class="pannel"><i class="fa fa-car fa-3x"></i></div>
+            <div class="pannel"><i class="fa fa-bicycle fa-3x"></i></div>
+        </div>
+    </div>
+{% endblock %}
+
+    

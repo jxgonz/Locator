@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+
+  {% block content %}
+    <h2>Book an Appointment for {{ service.serviceName }}</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Book Appointment</button>
+    </form>
+  {% endblock %}
