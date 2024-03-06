@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  {% if services %}
+    <div class="row row-cols-md-3">
+      {% for service in services %}
+        <div class="card">
+            {% if service.service_img %}
+            <img src="{{ service.service_img.url }}" alt="{{ service.serviceName }}" class="card-img-top">
+            {% else %}
+            <img src="{% static "img/IMG2.jpg" %}" class="card-img-top" alt="...">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ service.serviceName }}</h5>
+                <p class="card-text">{{ service.description }}</p>
+                <p class="card-text">${{ service.price }}/hr</p>
+                <div>
+                    <a href="{% url 'posting_service:edit_service' service.ServiceID %}" class="btn btn-primary">Edit</a>
+                    <button type="button" class="btn btn-danger delete-now" data-toggle="modal" data-target="#staticBackdrop" data-service-name="{{ service.serviceName }}" data-service-id="{{ service.ServiceID }}">Delete</button>
+                </div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-info" role="alert">
+      There are no services available. Click <a href="{% url 'posting_service:create-service' %}">here</a> to create a service posting.
+    </div>
+  {% endif %}
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Delete <span id="service-name"></span>?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this service? This action cannot be reversed!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" id="confirm-delete" data-service-id="">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="{% url 'home' %}">Go back</a>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Function to set the service name in the modal title
+      $('.delete-now').click(function() {
+        var serviceName = $(this).data('service-name');
+        var serviceID = $(this).data('service-id')
+        $('#service-name').text(serviceName);
+        $('#confirm-delete').data('service-id', serviceID);
+      });
+    });
+    $('#confirm-delete').click(function() {
+      var serviceID = $(this).data('service-id');
+      // Construct the delete URL using the service ID
+      var deleteUrl = `{% url 'posting_service:delete_service' 'dummyId' %}`.replace('dummyId', serviceID);
+      // Redirect to the delete URL
+      window.location.href = deleteUrl;
+    });
+  </script>
+{% endblock content %}

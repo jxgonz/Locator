@@ -22,3 +22,4 @@ class Appointment(models.Model):
   service = models.ForeignKey(Service, on_delete=models.CASCADE)
   status = models.CharField(max_length=10, choices=[('PENDING', 'Pending'), ('CONFIRMED', 'Confirmed'), ('COMPLETED', 'Completed'), ('CANCELLED', 'Cancelled')])
   date_time = models.DateTimeField(default=timezone.now)
+  created_at = models.DateTimeField(auto_now_add=True, null=True)
