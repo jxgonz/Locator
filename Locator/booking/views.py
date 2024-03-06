@@ -18,7 +18,7 @@ def bookAppointment(request, service_id):
       appointment.service = service
       appointment.status = 'PENDING'
       appointment.save()
-      return redirect('home')
+      return redirect('/appointments')
   else:
     form = AppointmentForm()
   return render(request, 'appointment.html', {'form': form, 'service': service})
@@ -29,7 +29,7 @@ def EditAppointmentView(request, appointment_id):
     form = AppointmentForm(request.POST, instance=appointment)
     if form.is_valid():
       form.save()
-      return redirect('home')
+      return redirect('/appointments')
   else:
     form = AppointmentForm(instance=appointment)
     
@@ -38,7 +38,7 @@ def EditAppointmentView(request, appointment_id):
 def CancelAppointmentView(request, appointment_id):
   appointment = Appointment.objects.get(AppointmentID=appointment_id)
   appointment.delete()
-  return redirect('home')
+  return redirect('/appointments')
 
 @login_required
 def ManageAppointmentView(request):
