@@ -6,10 +6,15 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Locator</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="test.css">
+        <link rel="stylesheet" href="workspace.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.7/lottie.min.js"></script>
+        <script src="workspace.js"></script>    
     </head>
     <body>
-        <script src="test.js"></script>
+
+        
+        
         <header class="header">
             <a href="#" class="logo">Locator</a>
 
@@ -26,13 +31,17 @@
 
         <div id="webpage">
             
-            <div id="text">
-                Locator
+            <p id="text">Find the right<br>and the secondline</p>
+
+
+            <div id="searchcontainer">
                 <form action="" class="search-bar">
                     <input type="text" placeholder="Search...">
                     <button type="submit"><i class="fa fa-search fa-2x" style="color:white;"></i></button>
                 </form>
             </div>
+            
+            
             <div class="slider">
                 <div class="slide"></div>
                 <div class="slide"></div>
@@ -53,10 +62,16 @@
                 </div>
             </div>
 
-            <div id="subproposal">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 0 1000 50" width="100%" height="50" preserveAspectRatio="none" style="display:block; width:100%;">
+                <polygon points="-100,50 0,0 100,50" fill="var(--primarycolor)" transform="rotate(180 0 25)"/>
+                <polygon points="100,50 200,0 300,50" fill="var(--primarycolor)" transform="rotate(180 200 25)"/>
+                <polygon points="300,50 400,0 500,50" fill="var(--primarycolor)" transform="rotate(180 400 25)"/>
+                <polygon points="500,50 600,0 700,50" fill="var(--primarycolor)" transform="rotate(180 600 25)"/>
+                <polygon points="700,50 800,0 900,50" fill="var(--primarycolor)" transform="rotate(180 800 25)"/>
 
-            </div>
+            </svg>
 
+            
             <div id="titlecategories">
                 Categories
             </div>
@@ -70,7 +85,10 @@
                     </span>
                 </div> -->
                 <div id="pannel">
-                    <img src="landscaping.webp" alt="Description" class="croppedimage">
+                    <img src="landscaping.jpg" alt="Description" style="width: 150%;height: 100%;"/>
+                    <span id="pannelheader">
+                        Landscaping
+                    </span>
                 </div>
                 <div id="pannel"><i class="fa fa-bath fa-2x"></i>
                     <span id = "panneltext">
@@ -89,11 +107,57 @@
                 </div>
                 
             </div>
-            <div id="puzzle-piece">
-                
+            <div id="titlecategories">
+                Popular
             </div>
+            <div id="popularsection">
+                <div id="popular">
+                    <div id="leftsection">
+                        <div id="ptitle">
+                            Title
+                        </div>
+                        <div id="pdescription">
+                            The description goes here The description goes here
+                            The description goes here The description goes here
 
+                        </div>
+                        <div id="puser">
+                            
+                                <div id="icon">
+                                    <!-- <a href="#"> -->
+                                        <img src="landscaping.jpg" class="croppedimage">
+                                    <!-- </a> -->
+                                </div>
+                                <div id="pusername">
+                                    First Last
+                                </div>
+                        </div>
+                        <div id="likereviews">
+                            <div id="heart">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="rightsection">
+                        <div id="imagesection">
+                        </div>
+                    </div>
+                </div>
+                <div id="popular">
+                </div>
+                <div id="popular">
+                </div>
+            </div>
         </div>
+
+        <!-- <script>
+            const animation = lottie.loadAnimation({
+                container: document.getElementById('heart'),
+                renderer: 'svg',
+                // loop: true, // Set to true if you want the animation to loop
+                autoplay: true,
+                path: 'heartanimation.json',
+            });
+        </script> -->
 
         <footer id="footer">
             <p></p>
