@@ -19,10 +19,9 @@ def ServiceCreateView(request):
       service.save()
       for image in images:
         photo = Photo.objects.create(service=service, service_img=image)
-      return redirect('home')
+      return redirect('/services')
   else:
     form = ServiceForm()
-  
   return render(request, 'service.html', {'form' : form})
 
 def UpdateServiceView(request, service_id):
@@ -31,7 +30,7 @@ def UpdateServiceView(request, service_id):
     form = ServiceForm(request.POST, request.FILES, instance=service)
     if form.is_valid():
       form.save()
-      return redirect('home')
+      return redirect('/services')
   else:
     form = ServiceForm(instance=service)
     
@@ -40,7 +39,7 @@ def UpdateServiceView(request, service_id):
 def DeleteServiceView(request, service_id):
   service = Service.objects.get(ServiceID=service_id)
   service.delete()
-  return redirect('home')
+  return redirect('/services')
 
 def ServicePageView(request, service_id):
   service = Service.objects.get(ServiceID=service_id)
@@ -57,7 +56,7 @@ def ServicePageView(request, service_id):
       review.rating = form.cleaned_data['rating']
       review.comment = form.cleaned_data['comment']
       review.save()
-      return redirect('home')
+      return redirect('/serviceview/' + service_id)
   else:
     form = ReviewForm()
   
