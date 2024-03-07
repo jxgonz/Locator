@@ -71,6 +71,7 @@
         <link rel="stylesheet" href="{% static 'css/home.css' %}">
         <link rel="stylesheet" href="{% static 'css/proposal.css' %}">
         <link rel="stylesheet" href="{% static 'css/categories.css' %}">
+        <link rel="stylesheet" href="{% static 'css/explore.css' %}">
 
         <script src="functions.js"></script>  
     </head>
@@ -79,20 +80,20 @@
             <a href="{% url 'home' %}" class="logo" id="header-item">Locator</a>
             <nav class="navbar">
                 <a href="{% url 'home' %}" id="header-item">Home</a>
-                <a href="{% url 'explore' %}" id="header-item">Explore Page</a>
+                <a href="{% url 'explore' %}" id="header-item">Explore</a>
                 {% comment %} <a href="#">Reviews</a> {% endcomment %}
                 {% if user.is_authenticated %}
-                <div class="dropdown" style="margin-left: 50px;">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                        Welcome, {{ user.first_name|default:"User" }}
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" id="dditem" href="{% url "posting_service:create-service" %}">Post a Service</a>
-                        <a class="dropdown-item" id="dditem" href="{% url "posting_service:manage_services" %}">Manage Services</a>
-                        <a class="dropdown-item" id="dditem" href="{% url "appointments:manage_appointments" %}">View Appointments</a>
-                        <a class="dropdown-item" id="dditem" href="{% url "logout" %}">Logout</a>
+                    <div class="dropdown" style="margin-left: 50px;">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            Welcome, {{ user.first_name|default:"User" }}
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" id="dditem" href="{% url "posting_service:create-service" %}">Post a Service</a>
+                            <a class="dropdown-item" id="dditem" href="{% url "posting_service:manage_services" %}">Manage Services</a>
+                            <a class="dropdown-item" id="dditem" href="{% url "appointments:manage_appointments" %}">View Appointments</a>
+                            <a class="dropdown-item" id="dditem" href="{% url "logout" %}">Logout</a>
+                        </div>
                     </div>
-                </div>
                 {% else %}
                     <a href="{% url "login" %}">
                         <button class="login">Login</button>

@@ -1,7 +1,58 @@
 {% extends "base.html" %}
 {% load static %}
+{% load custom_filters %}
 
 {% block content %}
+  {% for service in services %}
+    <div id="review" style="margin-left: 50%; transform: translate(-50%);">
+      <div id="leftsection">
+          <div id="ptitle" style="margin-top: 10px"> {{ service.serviceName }} </div>
+          <div id="pdescription">
+              {{ service.description | truncate_with_ellipsis:350 }}
+          </div>
+          <div id="puser">
+            
+            {% comment %} <div id="icon">
+                    <img src="../landscaping.jpg" style="width: 100%;height: 100%;">
+            </div> {% endcomment %}
+            <div id="pusername">
+                {{ service.freelancer.first_name }} {{ service.freelancer.last_name }}
+            </div>
+          </div>
+          <div id="other">
+              <div class="heartsection">
+                  <i class="far fa-heart animated-heart-outline fa-2x"></i>
+                  <i class="fas fa-heart animated-heart fa-2x"></i>
+              </div>
+              <a href="{% url 'posting_service:service_page' service.ServiceID %}" class="btn custom-button" style="height: 40px; margin-left: 15px;">View</a>
+              {% comment %} <div class="starsection">
+                  <i class="far fa-star starOutline" data-star="1"></i>
+                  <i class="far fa-star starOutline" data-star="2"></i>
+                  <i class="far fa-star starOutline" data-star="3"></i>
+                  <i class="far fa-star starOutline" data-star="4"></i>
+                  <i class="far fa-star starOutline" data-star="5"></i>
+              </div> {% endcomment %}
+          </div>
+      </div>
+      <div id="rightsection">
+          <div id="imagesection">
+              {% if service.photo_set.first %}
+                <img src="{{ service.photo_set.first.service_img.url }}" style="width: 100%;height: 100%; object-fit: cover;">
+              {% else %}
+                <img src="{% static 'img/temp.jpeg' %}" style="width: 100%;height: 100%; object-fit: cover;">
+              {% endif %}
+              
+          </div>
+      </div>
+      <div id="price-section">
+        ${{ service.price }}/hr
+      </div>
+    </div>
+  {% endfor %}
+  
+{% endblock content %}
+
+{% comment %} {% block content %}
   <div class="row row-cols-md-3">
     {% for service in services %}
       <div class="card">
@@ -62,4 +113,4 @@
       });
     });
   </script>
-{% endblock %}
+{% endblock %} {% endcomment %}

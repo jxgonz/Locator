@@ -47,7 +47,17 @@ body {
 
 #header-item:hover {
     transform: scale(1.1);
+    transition: 0.25s ease-in-out;
+    text-decoration: none;
 }
+
+.dropdown-menu a.dropdown-item {
+    margin-left: 0;
+}
+
+/* #ddmenu {
+    padding: 0;
+} */
 
 .header {
     position: absolute;
@@ -76,7 +86,7 @@ body {
 .navbar a {
     position: relative;
     font-size:20px;
-    color: white;
+    color: #0091ff;
     font-weight:500;
     text-decoration:none;
     margin-left:25px;
@@ -95,39 +105,44 @@ body {
     100% { background-position: 0% 50%;}
 }
 .login{
-    margin-left:50px;
+    margin-left:30px;
     font-size:20px;
     font-weight:500;
-    color: white;
+    color: #0091ff;
     background:transparent;
     cursor: pointer;
 
     width:100px;
     height:50px;
-    border: 3px solid white;
+    border: 3px solid #0091ff;
     border-radius:5px;
     transition-duration:.5s;
 }
 .login:hover{
     background:grey;
+    color: white;
+    border-color: white;
+    transition: all 0.25s ease-in-out;
 }
 .signup{
-    margin-left:25px;
+    margin-left:10px;
     font-size:20px;
     font-weight:500;
-    color: white;
+    color: #0091ff;
     background:transparent;
     cursor: pointer;
 
     width:120px;
     height:50px;
-    border: 3px solid white;
+    border: 3px solid #0091ff;
     border-radius:5px;
     transition:.5s;
 }
 .signup:hover{
     background:var(--primary);
-
+    color: white;
+    border-color: white;
+    transition: all 0.25s ease-in-out;
 }
 /* .searchtextcontainer{
     width:100%;
@@ -226,7 +241,7 @@ body {
 .slider {
     overflow-x: hidden;
     width: 100vw;
-    height: 93vh;
+    height: 80vh;
     position: relative;
     border-bottom: 4px solid white;
    }
