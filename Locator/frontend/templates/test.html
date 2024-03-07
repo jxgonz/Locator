@@ -3,7 +3,7 @@
 
 {% block content %}
     <div id="webpage">
-        <p id="text">This is a slogan</p>
+        <p id="text">Where Talent Meets Opportunity</p>
         <div id="searchcontainer">
             <form action="" class="search-bar">
                 <input type="text" placeholder="Search...">
@@ -46,28 +46,57 @@
             Categories
         </div>
         <div id = "categories">
-            <div id="pannel">
-                <img src="landscaping.jpg" alt="Description" style="width: 150%;height: 100%;"/>
-                <span id="pannelheader">
-                    Landscaping
+            <a href="{% url 'posting_service:category' 'EDUCATION' %}"><div id="pannel">
+                <img src="{% static 'img/education.jpeg' %}" alt="Description" style="width: 150%;height: 100%; object-fit:cover; object-position:right;"/>
+                <span id="pannelheader" style="text-shadow:  -1px -1px 0 #000, 1px -1px 0 #000, -1px  1px 0 #000, 1px  1px 0 #000; ">
+                    Education
                 </span>
-            </div>
-            <div id="pannel">
-                <img src="landscaping.jpg" alt="Description" style="width: 150%;height: 100%;"/>
-                <span id="pannelheader">
-                    Plumbing
+            </div></a>
+            <a href="{% url 'posting_service:category' 'PERSONAL CARE AND GROOMING' %}"><div id="pannel">
+                <img src="{% static 'img/personal_care_and_grooming.jpeg' %}" alt="Description" style="width: 150%;height: 100%; object-fit:cover; object-position:center;"/>
+                <span id="pannelheader" style="font-size: 18px; text-shadow:  -1px -1px 0 #000, 1px -1px 0 #000, -1px  1px 0 #000, 1px  1px 0 #000; ">
+                    Personal Care and Grooming
                 </span>
-            </div><div id="pannel">
-                <img src="landscaping.jpg" alt="Description" style="width: 150%;height: 100%;"/>
-                <span id="pannelheader">
-                    Tutoring
+            </div></a>
+            <a href="{% url 'posting_service:category' 'CLEANING AND JANITORIAL' %}"><div id="pannel">
+                <img src="{% static 'img/cleaning_and_janitorial.jpeg' %}" alt="Description" style="width: 150%;height: 100%; object-fit:cover; object-position:right;"/>
+                <span id="pannelheader" style="font-size: 20px; text-shadow:  -1px -1px 0 #000, 1px -1px 0 #000, -1px  1px 0 #000, 1px  1px 0 #000; ">
+                    Cleaning and Janitorial
                 </span>
-            </div><div id="pannel">
-                <img src="landscaping.jpg" alt="Description" style="width: 150%;height: 100%;"/>
-                <span id="pannelheader">
-                    Babysitting
+            </div></a> 
+            <a href="{% url 'posting_service:category' 'CONSTRUCTION AND RENOVATION' %}"><div id="pannel">
+                <img src="{% static 'img/construction.jpeg' %}" alt="Description" style="width: 150%;height: 100%; object-fit:cover; object-position:right;"/>
+                <span id="pannelheader" style="font-size: 18px; text-shadow:  -1px -1px 0 #000, 1px -1px 0 #000, -1px  1px 0 #000, 1px  1px 0 #000; ">
+                    Construction and Renovation
                 </span>
-            </div>
+            </div></a>
+        </div>
+        <div style="margin-bottom: 30px;"></div>
+        <div id = "categories">
+            <a href="{% url 'posting_service:category' 'LANDSCAPING AND GARDENING' %}"><div id="pannel">
+                <img src="{% static 'img/gardening.avif' %}" alt="Description" style="width: 150%;height: 100%; object-fit:cover; object-position:right;"/>
+                <span id="pannelheader" style="font-size: 18px; text-shadow:  -1px -1px 0 #000, 1px -1px 0 #000, -1px  1px 0 #000, 1px  1px 0 #000; ">
+                    Landscaping and Gardening
+                </span>
+            </div></a>
+            <a href="{% url 'posting_service:category' 'CHILD AND PET CARE' %}"><div id="pannel">
+                <img src="{% static 'img/child_care.jpeg' %}" alt="Description" style="width: 150%;height: 100%; object-fit:cover; object-position:center;"/>
+                <span id="pannelheader" style="font-size: 20px; text-shadow:  -1px -1px 0 #000, 1px -1px 0 #000, -1px  1px 0 #000, 1px  1px 0 #000; ">
+                    Child and Pet Care
+                </span>
+            </div></a>
+            <a href="{% url 'posting_service:category' 'TECHNOLOGY AND CREATIVE ARTS' %}"><div id="pannel">
+                <img src="{% static 'img/film.jpeg' %}" alt="Description" style="width: 150%;height: 100%; object-fit:cover; object-position:right;"/>
+                <span id="pannelheader" style="font-size: 18px; text-shadow:  -1px -1px 0 #000, 1px -1px 0 #000, -1px  1px 0 #000, 1px  1px 0 #000; ">
+                    Technology and Creative Arts
+                </span>
+            </div></a>
+            <a href="{% url 'posting_service:category' 'OTHER' %}"><div id="pannel">
+                <img src="{% static 'img/freelancer.png' %}" alt="Description" style="width: 150%;height: 100%; object-fit:cover; object-position:right;"/>
+                <span id="pannelheader" style="font-size: 20px; text-shadow:  -1px -1px 0 #000, 1px -1px 0 #000, -1px  1px 0 #000, 1px  1px 0 #000; ">
+                    Other
+                </span>
+            </div></a>
         </div>
     </div>
 {% endblock content %}

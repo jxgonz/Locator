@@ -42,6 +42,6 @@ def CancelAppointmentView(request, appointment_id):
 
 @login_required
 def ManageAppointmentView(request):
-  appointments = Appointment.objects.filter(client=request.user)
+  appointments = Appointment.objects.filter(client=request.user).order_by('date_time')
   return render(request, 'manage_appointments.html', {'appointments': appointments})
   

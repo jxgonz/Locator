@@ -81,11 +81,13 @@ def ChangeStatus(request, appointment_id):
     
   return render(request, "status.html", {"form" : form})
   
-  
+def ServiceCategoryView(request, category):
+  services = Service.objects.filter(category=category)
+  return render(request, 'category.html', {'services':services, 'category':category})
 
 @login_required
 def ManageServicesView(request):
-    services = Service.objects.filter(freelancer=request.user)
+    services = Service.objects.filter(freelancer=request.user).order_by('created_at')
     return render(request, 'manage_services.html', {'services': services})
   
   

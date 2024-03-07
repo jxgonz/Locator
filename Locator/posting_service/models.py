@@ -26,7 +26,7 @@ class Service(models.Model):
   description = models.TextField()
   price = models.DecimalField(max_digits=10, decimal_places=2) 
   credentials = models.FileField(upload_to='documents/', null=True, blank=True)
-#   category = models.CharField(max_length=40, choices=[('EDUCATION', 'Education'), ('LIFESTYLE AND WELLNESS', 'Lifestyle and Wellness'), ('CONSTRUCTION AND RENOVATION', 'Construction and Renovation'), ('LANDSCAPING AND GARDENING', 'Landscaping and Gardening')], null=True, blank=True)
+  category = models.CharField(max_length=40, choices=[('EDUCATION', 'Education'), ('PERSONAL CARE AND GROOMING', 'Personal Care and Grooming'), ('CLEANING AND JANITORIAL', 'Cleaning and Janitorial'), ('CONSTRUCTION AND RENOVATION', 'Construction and Renovation'), ('LANDSCAPING AND GARDENING', 'Landscaping and Gardening'), ('CHILD AND PET CARE', 'Child and Pet Care'), ('TECHNOLOGY AND CREATIVE ARTS', 'Technology and Creative Arts'), ('OTHER', 'Other')], null=True, blank=True)
   created_at = models.DateTimeField(auto_now_add=True)
   
 class Photo(models.Model):
