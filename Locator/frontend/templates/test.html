@@ -2,6 +2,77 @@
 {% load static %}
 
 {% block content %}
+    <div id="webpage">
+        <p id="text">This is a slogan</p>
+        <div id="searchcontainer">
+            <form action="" class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button type="submit"><i class="fa fa-search fa-sm" style="color:white;"></i></button>
+            </form>
+        </div>
+        <div class="slider">
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+        </div>
+        <div class="circle" onclick="scrollToSection()">
+            <i class="fa fa-angle-down fa-2x" style="color:white;"></i>
+        </div>
+
+        <div id="proposalsection">
+            <div id="proposal">
+                <div id="leftSection">
+                    <img src="landscaping.jpg" alt="Proposal Image">
+                </div>
+                <div id="rightSection">
+                <h2><i class="icon far fa-lightbulb"></i> Find a skill that best suits your needs</h2>
+                <p><i class="icon far fa-money-bill-alt"></i> Low fees and no surprises - Know what you are paying for</p>
+                <p><i class="icon fas fa-check"></i> Verified and Trustworthy - Meet people that can offer you quality services</p>
+                <p><i class="icon fas fa-briefcase"></i> Build your career through us - Find exactly what you are looking for from the services we offer</p>
+                <p><i class="icon fas fa-globe"></i> Issues? Talk to our support team - We are happy to help you with any problems you face</p>
+                </div>
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 0 1000 50" width="100%" height="50" preserveAspectRatio="none" style="display:block; width:100%;">
+            <polygon points="-100,50 0,0 100,50" fill="var(--primary)" transform="rotate(180 0 25)"/>
+            <polygon points="100,50 200,0 300,50" fill="var(--primary)" transform="rotate(180 200 25)"/>
+            <polygon points="300,50 400,0 500,50" fill="var(--primary)" transform="rotate(180 400 25)"/>
+            <polygon points="500,50 600,0 700,50" fill="var(--primary)" transform="rotate(180 600 25)"/>
+            <polygon points="700,50 800,0 900,50" fill="var(--primary)" transform="rotate(180 800 25)"/>
+        </svg>
+        <div id="titlecategories">
+            Categories
+        </div>
+        <div id = "categories">
+            <div id="pannel">
+                <img src="landscaping.jpg" alt="Description" style="width: 150%;height: 100%;"/>
+                <span id="pannelheader">
+                    Landscaping
+                </span>
+            </div>
+            <div id="pannel">
+                <img src="landscaping.jpg" alt="Description" style="width: 150%;height: 100%;"/>
+                <span id="pannelheader">
+                    Plumbing
+                </span>
+            </div><div id="pannel">
+                <img src="landscaping.jpg" alt="Description" style="width: 150%;height: 100%;"/>
+                <span id="pannelheader">
+                    Tutoring
+                </span>
+            </div><div id="pannel">
+                <img src="landscaping.jpg" alt="Description" style="width: 150%;height: 100%;"/>
+                <span id="pannelheader">
+                    Babysitting
+                </span>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% comment %} {% block content %}
     <div id="webpage" style="margin-top:-150px;">
         <div class="slider">
             <div id="text">
@@ -25,6 +96,6 @@
             <div class="pannel"><i class="fa fa-bicycle fa-3x"></i></div>
         </div>
     </div>
-{% endblock %}
+{% endblock %} {% endcomment %}
 
     
