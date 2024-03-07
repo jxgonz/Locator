@@ -5,21 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Explore</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-  <link rel="stylesheet" href="new.css">
-  
+  <link rel="stylesheet" href="heartstars.css">
+    <link rel="stylesheet" href="explore.css">
+    <link rel="stylesheet" href="post.css">  
+
+  <script src="functions.js"></script>
 </head>
 <body>
-    <div id="reviewsection">
-      <div id="review">
+  <header class="header">
+        <a href="#" class="logo">Locator</a>
+        <nav class="navbar">
+            <a href="home.html">Home</a>
+            <!-- <a href="explore.html">Explore Page</a> -->
+            <!-- <a href="#">Reviews</a> -->
+        </nav>
+    </header>
+  
+    <div id="postsection">
+      <div id="post">
           <div id="leftsection">
-              <div id="ptitle"> Title </div>
+              <a href="post.html" style="text-decoration: underline;" id="ptitle"> Title </a>
               <div id="pdescription">
                   The description goes here The description goes here
                   The description goes here The description goes here
               </div>
               <div id="puser">
                 <div id="icon">
-                        <img src="../landscaping.jpg" style="width: 100%;height: 100%;">
+                        <img src="landscaping.jpg" style="width: 100%;height: 100%;">
                 </div>
                 <div id="pusername">
                     First Last
@@ -41,61 +53,16 @@
           </div>
           <div id="rightsection">
               <div id="imagesection">
-                  <img src="../landscaping.jpg" style="width: 100%;height: 100%;">
+                  <img src="landscaping.jpg" style="width: 100%;height: 100%;">
               </div>
           </div>
           <div id="price-section">
             $123.56/hr
           </div>
       </div>
-      <div id="review">
-      </div>
-      <div id="review">
+      <!-- add more here -->
+      <div id="post">
       </div>
   </div>
-
-  <script>
-    document.querySelectorAll('.heartsection').forEach(function (heartContainer) {
-    console.log("added");
-
-    const heartIcon = heartContainer.querySelector('.animated-heart');
-    const heartOutline = heartContainer.querySelector('.animated-heart-outline');
-
-    heartIcon.addEventListener('click', function () {
-          console.log("yes");
-
-        // Toggle classes for the clicked heartIcon and its corresponding heartOutline
-        heartOutline.classList.toggle('heartOutline');
-        this.classList.toggle('heartIcon');
-    });
-  });
-
-
-  document.querySelectorAll('.starsection').forEach(function (container) {
-    console.log("yes");
-
-    container.addEventListener('click', function(event) {
-      const clickedStar = event.target.dataset.star;
-      // const containerId = container.dataset.containerId;
-  
-      const stars = container.querySelectorAll('.starOutline');
-      stars.forEach(star => {
-        const starNumber = star.dataset.star;
-  
-        if (starNumber <= clickedStar) {
-          star.classList.add('fas');
-          star.classList.remove('far');
-        } else {
-          star.classList.add('far');
-          star.classList.remove('fas');
-        }
-      });
-  
-      console.log(`Clicked Star ${clickedStar}`);
-    });
-  });
-  </script>
-
-
 </body>
 </html>
