@@ -5,7 +5,7 @@
     <h2>Book an Appointment for {{ service.serviceName }}</h2>
     <form method="post">
       {% csrf_token %}
-      {{ form.as_p }}
+      {{ form.date_time }}
       <button type="submit">Book Appointment</button>
     </form>
   {% endblock %}

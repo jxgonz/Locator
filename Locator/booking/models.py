@@ -20,6 +20,6 @@ class Appointment(models.Model):
   AppointmentID = models.CharField(max_length=8, default=generate_unique_code, unique=True)
   client = models.ForeignKey(User, on_delete=models.CASCADE)
   service = models.ForeignKey(Service, on_delete=models.CASCADE)
-  status = models.CharField(max_length=10, choices=[('PENDING', 'Pending'), ('CONFIRMED', 'Confirmed'), ('COMPLETED', 'Completed'), ('CANCELLED', 'Cancelled')])
+  status = models.CharField(max_length=10, choices=[('PENDING', 'Pending'), ('CONFIRMED', 'Confirmed'), ('COMPLETED', 'Completed'), ('CANCELLED', 'Cancelled')], blank=True)
   date_time = models.DateTimeField(default=timezone.now)
   created_at = models.DateTimeField(auto_now_add=True, null=True)
