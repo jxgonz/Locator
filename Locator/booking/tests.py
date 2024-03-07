@@ -24,7 +24,7 @@ class BookingServiceTestCase(TestCase):
             credentials=SimpleUploadedFile(name='test_image.png', content=b'file_content', content_type='image/png')
         )
 
-        booking_url = f"/book/{self.service.id}/"
+        booking_url = f"/book/{self.service.ServiceID}/"
         booking_data = {
             'date_time': '2024-03-10T14:00'
         }
@@ -51,7 +51,7 @@ class BookingServiceTestCase(TestCase):
             credentials=SimpleUploadedFile(name='test_image.png', content=b'file_content', content_type='image/png')
         )
 
-        booking_url = f"/book/{self.service.id}/"
+        booking_url = f"/book/{self.service.ServiceID}/"
         booking_data = {
             'date_time': '2024-03-10T14:00'
         }
@@ -67,7 +67,7 @@ class BookingServiceTestCase(TestCase):
             credentials=SimpleUploadedFile(name='test_image.png', content=b'file_content', content_type='image/png')
         )
 
-        booking_url2 = f"/book/{self.service2.id}/"
+        booking_url2 = f"/book/{self.service2.ServiceID}/"
 
         response = self.client.post(booking_url2, booking_data)
 

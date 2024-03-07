@@ -24,7 +24,7 @@ class BookingServiceTestCase(TestCase):
             credentials=SimpleUploadedFile(name='test_image.png', content=b'file_content', content_type='image/png')
         )
 
-        comment_url = f"/serviceview/{self.service.id}/"
+        comment_url = f"/serviceview/{self.service.ServiceID}/"
         comment_data = {
             'rating': '5',
             'comment': 'Excellent'
@@ -52,7 +52,7 @@ class BookingServiceTestCase(TestCase):
             credentials=SimpleUploadedFile(name='test_image.png', content=b'file_content', content_type='image/png')
         )
 
-        comment_url = f"/serviceview/{self.service.id}/"
+        comment_url = f"/serviceview/{self.service.ServiceID}/"
         comment_data = {
             'rating': '5',
         }
@@ -78,7 +78,7 @@ class BookingServiceTestCase(TestCase):
             credentials=SimpleUploadedFile(name='test_image.png', content=b'file_content', content_type='image/png')
         )
 
-        comment_url = f"/serviceview/{self.service.id}/"
+        comment_url = f"/serviceview/{self.service.ServiceID}/"
         comment_data = {
             'comment': 'Excellent'
         }
