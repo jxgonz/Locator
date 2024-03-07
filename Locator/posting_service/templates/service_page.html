@@ -8,7 +8,7 @@
         <div class="carousel-inner">
           {% for photo in photos %}
             <div class="carousel-item {% if forloop.first %}active{% endif %}">
-              <img src="{{ photo.service_img.url }}" class="d-block w-100" style="height:500px; object-fit: cover;">
+              <img src="{{ photo.service_img.url }}" class="d-block w-100" style="height:600px; object-fit: cover;">
             </div>
           {% endfor %}
         </div>
@@ -22,7 +22,7 @@
         </button>
       </div>
     {% else %}
-      <img src="{% static "img/IMG2.jpg" %}" class="card-img-top" style="height:500px; object-fit: cover;">
+      <img src="{% static "img/IMG2.jpg" %}" class="card-img-top" style="height:600px; object-fit: cover;">
     {% endif %}
     
     <div class="card-body">
@@ -35,7 +35,7 @@
       {% if service.credentials %}
         <a href="{{ service.credentials.url }}" class="btn btn-secondary" download>View Credentials</a>
       {% endif %}
-      <a href="{% url 'appointments:book' service.ServiceID %}" class="btn btn-primary">Book Now</a>
+      <a href="{% url 'appointments:book' service.ServiceID %}" class="btn custom-button">Book Now</a>
       <p class="card-text"><small class="text-muted">Posted on {{service.created_at|date:"N d"}}</small></p>
     </div>
   </div>
@@ -59,26 +59,24 @@
         <label for="exampleFormControlTextarea1">Comment</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" rows="3"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn custom-button">Submit</button>
     </form>
   {% endif %}
-
-  <div style="margin-bottom: 30px;"></div>
   
-
-  {% for review in reviews %}
-    <div class="card" style="width: 80%; margin-left: 50%; transform: translate(-50%);">
-      <div class="card-header">
-        {{ review.client.first_name }}
+  <div class="reviews-container" style="margin-top: 30px;">
+    {% for review in reviews %}
+      <div class="review">
+        <div class="user-info">
+          <div class="user-details">
+            <div class="user-name">{{ review.client.first_name }} {{ review.client.last_name }}</div>
+            <div class="review-date">{{review.created_at|date:"N d, Y"}}</div>
+          </div>
+        </div>
+        <div class="review-content">
+          <p>{{ review.comment }}</p>
+        </div>
+        <p> {{ review.rating }}<small class="text-muted">/5</small></p>
       </div>
-      <div class="card-body">
-        <blockquote class="blockquote mb-0">
-          <p> {{ review.rating }}<small class="text-muted">/5</small></p>
-          <p> {{ review.comment }}</p>
-          <small class="text-muted" style="font-size: 12px;">Posted on {{review.created_at|date:"N d"}}</small>
-        </blockquote>
-      </div>
-    </div>
-    <div style="margin-bottom: 30px;"></div>
-  {% endfor %}
+    {% endfor %}
+  </div>
 {% endblock content %}

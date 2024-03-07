@@ -2,10 +2,12 @@
 {% load static %}
 
   {% block content %}
-    <h2>Book an Appointment for {{ service.serviceName }}</h2>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.date_time }}
-      <button type="submit">Book Appointment</button>
+    <h2 style="margin-left: 50%; transform: translate(-50%); margin-bottom: 30px;">Book an Appointment for <i>{{ service.serviceName }}</i></h2>
+    <form method="post" style="margin-left: 50%; transform: translate(-50%);">
+      <div style="margin-left: 50%; transform: translate(-50%);">
+        {% csrf_token %}
+        {{ form.date_time }}
+        <button type="submit" class="btn custom-button">Book Appointment</button>
+      </div>
     </form>
   {% endblock %}

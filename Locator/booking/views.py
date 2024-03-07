@@ -33,7 +33,7 @@ def EditAppointmentView(request, appointment_id):
   else:
     form = AppointmentForm(instance=appointment)
     
-  return render(request, 'edit_appointment.html', {'form' : form})
+  return render(request, 'edit_appointment.html', {'form' : form, 'appointment':appointment})
 
 def CancelAppointmentView(request, appointment_id):
   appointment = Appointment.objects.get(AppointmentID=appointment_id)

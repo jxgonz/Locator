@@ -2,10 +2,14 @@
 {% load static %}
 
 {% block content %}
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.date_time }}
-    <button type="submit">Change Appointment</button>
+  <h2 style="text-align: center; margin-bottom: 30px;">Edit Appointment for <i>{{ appointment.service.serviceName }}</i></h2>
+  <form method="post" style="margin-left: 50%; transform: translate(-50%);">
+    <div style="margin-left: 50%; transform: translate(-50%);">
+      {% csrf_token %}
+      {{ form.date_time }}
+      <button type="submit" class="btn custom-button">Book Appointment</button>
+      <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+    </div>
   </form>
-  <a href="{% url 'home' %}">Cancel</a>
+  
 {% endblock content %}

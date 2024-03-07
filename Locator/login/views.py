@@ -9,7 +9,7 @@ def register(response):
     if form.is_valid():
       user = form.save()
       login(response, user)
-      return(redirect("/home"))
+      return(redirect("home"))
   else:
     form = RegisterForm()
       

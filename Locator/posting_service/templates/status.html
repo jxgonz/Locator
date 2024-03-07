@@ -2,11 +2,13 @@
 {% load static %}
 
 {% block content %}
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{ form.date_time }}
-  {{ form.status }}
-  <button type="submit">Change Status</button>
+<form method="post" style="margin-left: 50%; transform: translate(-50%);">
+  <div style="margin-left: 50%; transform: translate(-50%);">
+    {% csrf_token %}
+    {{ form.date_time }}
+    {{ form.status }}
+    <button type="submit" class="btn custom-button">Change Status</button>
+  </div>
 </form>
-<a href="{% url 'home' %}">Cancel</a>
+<a href="{% url 'home' %}" class="btn btn-secondary" style="margin-left: 50px;">Cancel</a>
 {% endblock content %}
