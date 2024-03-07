@@ -1,0 +1,46 @@
+@keyframes pulse {
+    0% { transform: scale(1); }
+    35% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+}
+.animated-heart {
+    color: transparent;
+    position:absolute;
+}
+.animated-heart-outline {
+    position:absolute;
+}
+.heartIcon {
+    color: red;
+    animation: pulse 0.5s;
+}
+.heartOutline {
+    color: transparent;
+}
+
+.starContainer {
+    width:150px;;
+    font-size: 24px;
+    display: flex;
+}
+.starOutline {
+    color: gold;
+    cursor: pointer;
+}
+
+
+.heartsection{
+    margin-left:10px;
+    width:50px;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.starsection{
+    margin-left:10px;
+    width:150px;
+    height:100%;
+    display:flex;
+    align-items:center;
+}
