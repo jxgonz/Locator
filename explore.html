@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +6,240 @@
   <title>Explore</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
-    <link rel="stylesheet" href="heartstars.css">
-    <link rel="stylesheet" href="post.css">
+  <style>
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      35% { transform: scale(1.5); }
+      100% { transform: scale(1); }
+    }
 
-    <script src="functions.js"></script>
+    .animated-heart {
+        color: transparent;
+        position:absolute;
+        cursor: pointer;
+
+    }
+    .animated-heart-outline {
+        position:absolute;
+    }
+    .heartIcon {
+        color: red;
+        animation: pulse 0.5s;
+    }
+    .heartOutline {
+        color: transparent;
+    }
+    .starContainer {
+        width:150px;;
+        font-size: 24px;
+        display: flex;
+    }
+    .starOutline {
+        color: gold;
+        cursor: pointer;
+    }
+    .heartsection{
+        margin-left:10px;
+        width:50px;
+        height:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    .starsection{
+        margin-left:10px;
+        width:150px;
+        height:100%;
+        display:flex;
+        align-items:center;
+    }
+
+
+
+
+
+    #reviewsection{
+        width:100%;
+        height: 1500px;
+        /* color: var(--fifth);
+        font-size: 36px;
+        text-decoration:none;
+        font-weight:700; */
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+    #review{
+        /* position:relative;
+        width:700px;
+        height: 300px;
+        margin-bottom:50px;
+        background-color:white;
+        border: 2px solid rgb(226, 226, 226);
+        border-radius: 5px;
+        display:flex; */
+
+        position: relative;
+      width: 700px;
+      height: 300px;
+      margin-bottom: 50px;
+      background-color: white;
+      border: 2px solid rgb(226, 226, 226);
+      border-radius: 10px;
+      display: flex;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    #leftsection{
+        width:50%;
+        height:100%;
+        display:flex;
+        flex-direction:column;
+
+        /* width: 50%;
+      display: flex;
+      flex-direction: column;
+      padding: 20px; */
+    }
+    #rightsection{
+        position:relative;
+        right:0px;
+        /* width: 50%;
+        height: 100%; */
+    }
+    #imagesection{
+        /* width: calc(100% - 50px);
+        height: calc(100% - 50px);  */
+        /* border:2px solid rgba(150, 150, 150, 1);
+        border-radius:5px;
+
+        box-sizing: border-box; */
+
+        margin-left:25px;
+
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    #ptitle {
+        width:100%;
+        height:50px;        
+        padding-left:10px;
+        color:var(--fifth);
+        font-size: 30px;
+        text-decoration:none;
+        font-weight:bold;
+
+        /* font-size: 24px;
+      color: #333;
+      font-weight: bold;
+      margin-bottom: 10px; */
+    }
+    #pdescription{
+        width:100%;
+        height:150px;
+        /* background-color:green; */
+
+        padding-left:10px;
+        color:var(--fifth);
+        font-size: 14px;
+        text-decoration:none;
+        text-overflow:ellipsis;
+
+
+
+        /* font-size: 14px;
+      color: #666;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      margin-bottom: 10px; */
+    }
+    #puser{
+        width:100%;
+        height:50px;
+        display:flex;
+
+        /* display: flex;
+      align-items: center;
+      margin-top: 10px; */
+        
+    }
+    #icon{
+        width:36px;
+        height:36px;
+        margin-top:5px;
+        margin-left:5%;
+        border-radius:50%;
+        background-color:grey;
+        overflow:hidden;
+        /* margin-right: 10px; */
+
+    }
+    #pusername{
+        margin-left:10px;
+        line-height: 50px;
+
+        /* line-height: 36px;
+      font-weight: bold;
+      color: #333; */
+    }
+    #other{
+        width:100%;
+        display:flex;
+        flex-grow:1;
+        /* display: flex;
+        margin-top: 10px;     */
+    }
+    
+    
+    
+
+
+
+
+    #reviewsection {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .review {
+      position: relative;
+      width: 700px;
+      height: 300px;
+      margin-bottom: 50px;
+      background-color: white;
+      border: 2px solid rgb(226, 226, 226);
+      border-radius: 5px;
+      display: flex;
+    }
+
+    #price-section {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background-color: #f5f5f5;
+      padding: 5px 10px;
+      font-size: 16px;
+      font-weight: bold;
+      /* color: var(--fifth); */
+      color: #333;
+      border-radius:5px;
+    }
+
+    
+
+
+  </style>
+  
 </head>
 <body>
-    <div id="postsection">
-
-      <div id="post">
+    <div id="reviewsection">
+      <div id="review">
           <div id="leftsection">
               <div id="ptitle"> Title </div>
               <div id="pdescription">
@@ -24,7 +248,7 @@
               </div>
               <div id="puser">
                 <div id="icon">
-                        <img src="landscaping.jpg" style="width: 100%;height: 100%;">
+                        <img src="../landscaping.jpg" style="width: 100%;height: 100%;">
                 </div>
                 <div id="pusername">
                     First Last
@@ -46,19 +270,60 @@
           </div>
           <div id="rightsection">
               <div id="imagesection">
-                  <img src="landscaping.jpg" style="width: 100%;height: 100%;">
+                  <img src="../landscaping.jpg" style="width: 100%;height: 100%;">
               </div>
           </div>
           <div id="price-section">
             $123.56/hr
           </div>
       </div>
-      <!-- add more here -->
-      <div id="post">
+      <div id="review">
       </div>
-      <div id="post">
+      <div id="review">
       </div>
   </div>
+
+  <script>
+    document.querySelectorAll('.heartsection').forEach(function (heartContainer) {
+    console.log("added");
+
+    const heartIcon = heartContainer.querySelector('.animated-heart');
+    const heartOutline = heartContainer.querySelector('.animated-heart-outline');
+
+    heartIcon.addEventListener('click', function () {
+          console.log("yes");
+
+        // Toggle classes for the clicked heartIcon and its corresponding heartOutline
+        heartOutline.classList.toggle('heartOutline');
+        this.classList.toggle('heartIcon');
+    });
+  });
+
+
+  document.querySelectorAll('.starsection').forEach(function (container) {
+    console.log("yes");
+
+    container.addEventListener('click', function(event) {
+      const clickedStar = event.target.dataset.star;
+      // const containerId = container.dataset.containerId;
+  
+      const stars = container.querySelectorAll('.starOutline');
+      stars.forEach(star => {
+        const starNumber = star.dataset.star;
+  
+        if (starNumber <= clickedStar) {
+          star.classList.add('fas');
+          star.classList.remove('far');
+        } else {
+          star.classList.add('far');
+          star.classList.remove('fas');
+        }
+      });
+  
+      console.log(`Clicked Star ${clickedStar}`);
+    });
+  });
+  </script>
 
 
 </body>
