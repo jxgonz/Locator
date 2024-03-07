@@ -3,28 +3,23 @@
 
 {% block content %}
   {% if services %}
-    <div class="row row-cols-md-3">
       {% for service in services %}
-        <div class="card">
-            {% if service.service_img %}
-            <img src="{{ service.service_img.url }}" alt="{{ service.serviceName }}" class="card-img-top">
-            {% else %}
-            <img src="{% static "img/IMG2.jpg" %}" class="card-img-top" alt="...">
-            {% endif %}
-            <div class="card-body">
-                <h5 class="card-title">{{ service.serviceName }}</h5>
-                <p class="card-text">{{ service.description }}</p>
-                <p class="card-text">${{ service.price }}/hr</p>
-                <div>
-                    <a href="{% url 'posting_service:edit_service' service.ServiceID %}" class="btn btn-primary">Edit</a>
-                    <button type="button" class="btn btn-danger delete-now" data-toggle="modal" data-target="#staticBackdrop" data-service-name="{{ service.serviceName }}" data-service-id="{{ service.ServiceID }}">Delete</button>
-                </div>
+        <div class="card w-75" style="margin-left: 50%; transform: translate(-50%);">
+          <div class="card-body">
+            <h5 class="card-title">{{ service.serviceName }}</h5>
+            <p class="card-text">{{ service.description }}</p>
+            <p class="card-text">${{ service.price }}/hr</p>
+            <div>
+                <a href="{% url 'posting_service:service_appointments' service.ServiceID %}" class="btn btn-secondary">Manage Appointments</a>
+                <a href="{% url 'posting_service:edit_service' service.ServiceID %}" class="btn btn-primary">Edit</a>
+                <button type="button" class="btn btn-danger delete-now" data-toggle="modal" data-target="#staticBackdrop" data-service-name="{{ service.serviceName }}" data-service-id="{{ service.ServiceID }}">Delete</button>
             </div>
+          </div>
         </div>
+        <div style="margin-bottom: 30px;"></div>
       {% endfor %}
-    </div>
   {% else %}
-    <div class="alert alert-info" role="alert">
+    <div class="alert alert-info" role="alert" style="width: 75%; margin-left: 50%; transform: translate(-50%);">
       There are no services available. Click <a href="{% url 'posting_service:create-service' %}">here</a> to create a service posting.
     </div>
   {% endif %}
@@ -49,7 +44,12 @@
       </div>
     </div>
   </div>
-  <a href="{% url 'home' %}">Go back</a>
+
+  <a type="button" class="btn btn-secondary" href="{% url 'home' %}" style="margin-left: 30px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
+    <path d="M10 12.796V3.204L4.519 8zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753"></path></svg>
+    Home
+  </a>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>

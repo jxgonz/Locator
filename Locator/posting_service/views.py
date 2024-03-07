@@ -3,7 +3,9 @@ from django.contrib.auth.decorators import login_required
 from .forms import ServiceForm
 from .models import Service, Photo
 from reviews.models import Review
+from booking.models import Appointment
 from reviews.forms import ReviewForm
+from booking.forms import AppointmentForm
 from django.db.models import Avg
 
 
@@ -61,6 +63,25 @@ def ServicePageView(request, service_id):
     form = ReviewForm()
   
   return render(request, 'service_page.html', {'form' : form, 'service' : service, 'reviews' : reviews, 'photos':photos,'average_rating': average_rating_rounded})
+
+def ServiceAppointmentsView(request, service_id):
+  service = Service.objects.get(ServiceID=service_id)
+  appointments = Appointment.objects.filter(service=service)
+  return render(request, 'manage_app.html', {'appointments':appointments})
+
+def ChangeStatus(request, appointment_id):
+  appointment = Appointment.objects.get(AppointmentID=appointment_id)
+  if request.method == "POST":
+    form = AppointmentForm(request.POST, instance=appointment)
+    if form.is_valid():
+      form.save()
+      return redirect('/services')
+  else:
+    form = AppointmentForm(instance=appointment)
+    
+  return render(request, "status.html", {"form" : form})
+  
+  
 
 @login_required
 def ManageServicesView(request):

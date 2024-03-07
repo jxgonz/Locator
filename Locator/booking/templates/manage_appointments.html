@@ -3,13 +3,14 @@
 
 {% block content %}
   {% if appointments %}
-    <div class="row row-cols-md-3">
+    <div class="row row-cols-md-3" style="width: 80%; margin-left: 50%; transform: translate(-50%);">
       {% for appointment in appointments %}
         <div class="col mb-4">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Appointment for {{appointment.service.serviceName}}</h5>
               <p class="card-text">Scheduled for: {{ appointment.date_time }}</p>
+              <p class="card-text">Status: {{ appointment.status }}</p>
               <div>
                 <a href="{% url 'appointments:edit_appointment' appointment.AppointmentID %}" class="btn btn-primary">Edit</a>
                 <button type="button" class="btn btn-danger delete-now" data-toggle="modal" data-target="#staticBackdrop" data-service-name="{{ appointment.service.serviceName }}" data-appointment-id="{{ appointment.AppointmentID }}">Cancel Appointment</button>
@@ -20,7 +21,7 @@
       {% endfor %}
     </div>
   {% else %}
-    <div class="alert alert-info" role="alert">
+    <div class="alert alert-info" role="alert" style="width: 75%; margin-left: 50%; transform: translate(-50%);">
       You have no scheduled appointments. Click <a href="{% url 'explore' %}">here</a> to explore all services.
     </div>
   {% endif %}
@@ -44,7 +45,11 @@
       </div>
     </div>
   </div>
-  <a href="{% url 'home' %}">Go back</a>
+  <a type="button" class="btn btn-secondary" href="{% url 'home' %}" style="margin-left: 30px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
+    <path d="M10 12.796V3.204L4.519 8zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753"></path></svg>
+    Home
+  </a>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
