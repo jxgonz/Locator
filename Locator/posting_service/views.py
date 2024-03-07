@@ -42,7 +42,7 @@ def DeleteServiceView(request, service_id):
   return redirect('/services')
 
 def ServicePageView(request, service_id):
-  service = Service.objects.get(id=service_id)
+  service = Service.objects.get(ServiceID=service_id)
   reviews = Review.objects.filter(service=service)
   photos = Photo.objects.filter(service=service)
   average_rating = reviews.aggregate(Avg('rating'))['rating__avg'] or 0

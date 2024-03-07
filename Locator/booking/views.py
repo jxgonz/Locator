@@ -9,7 +9,7 @@ from .models import Appointment
 # Create your views here.
 @login_required
 def bookAppointment(request, service_id):
-  service = Service.objects.get(id=service_id)
+  service = Service.objects.get(ServiceID=service_id)
   if request.method == 'POST':
     form = AppointmentForm(request.POST)
     if form.is_valid():
