@@ -6,7 +6,7 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 
 
 class BookingServiceTestCase(TestCase):
-    def test_booking_service(self):
+    def test_reviewing_service(self):
         form_data = {
             'first_name': 'John',
             'last_name': 'Doe',
@@ -34,7 +34,7 @@ class BookingServiceTestCase(TestCase):
 
         self.assertEqual(response.status_code, 302)
 
-    def test_booking_service_no_comment(self):
+    def test_reviewing_service_no_comment(self):
         form_data = {
             'first_name': 'John',
             'last_name': 'Doe',
@@ -60,7 +60,8 @@ class BookingServiceTestCase(TestCase):
         response = self.client.post(comment_url, comment_data)
 
         self.assertEqual(response.status_code, 200)
-    def test_booking_service_no_rating(self):
+
+    def test_reviewing_service_no_rating(self):
         form_data = {
             'first_name': 'John',
             'last_name': 'Doe',
