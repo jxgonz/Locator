@@ -6,7 +6,7 @@
   {% for service in services %}
     <div id="review" style="margin-left: 50%; transform: translate(-50%);">
       <div id="leftsection">
-          <div id="ptitle" style="margin-top: 10px"> {{ service.serviceName }} </div>
+          <div id="ptitle" style="margin-top: 10px; margin-bottom: 40px;"> {{ service.serviceName }} </div>
           <div id="pdescription">
               {{ service.description | truncate_with_ellipsis:350 }}
           </div>
